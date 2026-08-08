@@ -1,0 +1,38 @@
+
+ #include <LiquidCrystal.h>
+
+// Initialize the LiquidCrystal library with interface pin numbers
+// LiquidCrystal(rs, enable, d4, d5, d6, d7)
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); 
+
+// Pin definitions for both LEDs
+const int ledPin1 = 13; // First LED
+const int ledPin2 = 10; // Second LED
+
+void setup() {
+  // Configure both LED pins as outputs
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+
+  // Turn ON both LEDs
+  digitalWrite(ledPin1, HIGH);
+  digitalWrite(ledPin2, HIGH);
+
+  // Initialize the LCD (16 columns and 2 rows)
+  lcd.begin(16, 2);
+
+  // Clear display
+  lcd.clear();
+
+  // Print "Smart Night" on the top row
+  lcd.setCursor(0, 0);
+  lcd.print("Smart Night");
+
+  // Print status on the second row
+  lcd.setCursor(0, 1);
+  lcd.print("LEDs: ON");
+}
+
+void loop() {
+  // Main loop remains empty as setup handles the state
+}
